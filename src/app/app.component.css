@@ -1,0 +1,9 @@
+.pages{
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-size: 2.1vh;
+  color: green;
+  transition: 0.15s;
+}
+.pages:hover{
+  opacity: 0.4;
+}

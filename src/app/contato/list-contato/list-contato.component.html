@@ -1,0 +1,50 @@
+
+  <h2 class="title">Carrinho de Compras</h2>
+
+<div class="mx-auto">
+  <!-- LOADER -->
+  <div class="loaderWrapper" *ngIf="mostrarLoader">
+    <div class="loader"></div>
+  </div>
+  <!-- CONTEUDO LISTA VAZIA -->
+  <div class="text-center" *ngIf="listaVazia">
+    <p>Nenhuma camisa adicionado ainda.</p>
+    <a routerLink="/add-contato" class="btn btn-success">Adicionar Contato</a>
+  </div>
+  <!-- CONTEUDO NORMAL -->
+  <div class="table-responsive" *ngIf="!listaVazia">
+    <table class="table table-bordered">
+      <thead class="table">
+        <th scope="col">#</th>
+        <th scope="col">Time</th>
+        <th scope="col">Tamanho</th>
+        <th scope="col">Ano(2021, 2022, 2023...)</th>
+        <th scope="col" class="text-center">Editar</th>
+      </thead>
+      <tbody>
+        <tr *ngFor="let contato of listaContato | paginate: { itemsPerPage: 8, currentPage: page};
+                    let i = index">
+          <th scope="row">{{i+1}}</th>
+          <td>{{contato.time}}</td>
+          <td>{{contato.tamanho}}</td>
+          <td>{{contato.ano}}</td>
+          <td class="text-center action-block">
+            <span
+              class="btn btn-success mx-2"
+              routerLink="/edit-contato/{{contato.$key}}">Editar</span>
+            <span
+              class="btn btn-secondary mx-2" (click)="deleteContato(contato)">Remover</span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <pagination-controls
+      class="text-end"
+      previousLabel="Anterior" nextLabel="Próximo"
+      (pageChange)="page = $event"></pagination-controls>
+  </div>
+  <div class="container-chicken">
+    <img class="chicken" src="https://conteudo.imguol.com.br/c/noticias/a5/2021/10/28/lek-trek-franguinha-da-sadia-1635433116562_v2_1000x1000.jpg" alt="">
+  </div>
+</div>

@@ -1,0 +1,11 @@
+.title{
+  text-align: center;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  text-align: center;
+  font-size: 50px;
+  text-shadow: 2px 2px 5px blue;
+}
+.label{
+  color: green;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}

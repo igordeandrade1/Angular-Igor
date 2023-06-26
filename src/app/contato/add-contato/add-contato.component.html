@@ -1,0 +1,59 @@
+<div class="pt-3 pb-2 border-bottom">
+  <h2 class="title">Adicionar Produto</h2>
+</div>
+<form [formGroup]="contatoForm" (ngSubmit)="submitForm()" novalidate>
+  <div class="row">
+    <div class="col-lg-6 col-md-8 col-sm-12">
+      <!-- TIME -->
+      <div class="row">
+        <div class="col-md-12 mb-3">
+          <label class="label" [ngClass]="{'text-danger': time?.touched && time?.invalid}"
+          for="time" ckass="form-label">Time:</label>
+          <input
+          [ngClass]="{'is-invalid': time?.touched && time?.invalid, 'is-valid': time?.touched && time?.valid}"
+          type="text" id="time" class="form-control" formControlName="time" required>
+          <div class="invalid-feedback"><sup>*</sup>Camisa obrigatória</div>
+        </div>
+      </div>
+      <!-- tamanho -->
+      <div class="row">
+        <div class="col-md-12 mb-3">
+          <label
+          [ngClass]="{'text-danger': tamanho?.touched && tamanho?.invalid}"
+          for="tamanho" class="label">Tamanho:</label>
+        <input
+          [ngClass]="{'is-invalid': tamanho?.touched && tamanho?.invalid, 'is-valid': tamanho?.touched && tamanho?.valid}"
+          type="text"
+          formControlName="tamanho"
+          class="form-control"
+          required
+        />
+        <!-- Validation FeedBack -->
+        <div class="invalid-feedback"><sup>*</sup>Tamanho obrigatório</div>
+        </div>
+      </div>
+      <!-- ano -->
+      <div class="row">
+        <div class="col-md-12 mb-3">
+          <label
+          [ngClass]="{'text-danger': ano?.touched && ano?.invalid}"
+          for="number" class="label">Ano(2021, 2022, 2023...):</label>
+        <input
+          [ngClass]="{'is-invalid': ano?.touched && ano?.invalid, 'is-valid': ano?.touched && ano?.valid}"
+          type="text"
+          formControlName="ano"
+          class="form-control"
+          required
+        />
+        <!-- Validation FeedBack -->
+        <div class="invalid-feedback"><sup>*</sup>Informe o ano de temporada da camisa</div>
+        </div>
+      </div>
+      <div class="form-group text-end">
+        <button type="button" class="btn btn-secondary mx-2" (click)="resetForm()">Limpar</button>
+        <button type="submit" class="btn btn-success mx-2" [disabled]="!contatoForm.valid">
+          Adicionar Produto</button>
+      </div>
+    </div>
+  </div>
+</form>
